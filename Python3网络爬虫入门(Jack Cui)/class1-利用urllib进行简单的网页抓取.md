@@ -64,7 +64,7 @@ IDE：Sublime text3
 
    在Python3.x中，我们可以使用urlib这个组件抓取网页，urllib是一个URL处理包，这个包中集合了一些处理URL的模块，如下：
 
-   picture1
+   ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/1-9.png)
 
 1.urllib.request模块是用来打开和读取URLs的；
 
@@ -76,7 +76,7 @@ IDE：Sublime text3
 
    我们使用urllib.request.urlopen()这个接口函数就可以很轻松的打开一个网站，读取并打印信息。
 
-   picture2
+   ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/1-10.png)
 
    urlopen有一些可选参数，具体信息可以查阅Python自带的documentation。
 
