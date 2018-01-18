@@ -101,7 +101,7 @@ if __name__ == "__main__":
    urllib使用使用request.urlopen()打开和读取URLs信息，返回的对象response如同一个文本对象，我们可以调用read()，进行读取。再通过print()，将读到的信息打印出来。
 
    运行程序ctrl+b，可以在Sublime中查看运行结果，如下：
-   ![Alt text](https://github.com/chenyufeng1991/NewsClient/raw/master/Screenshots/2.png)
+   ![Alt text](https://github.com/winter-bear/python-study/tree/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/1-1.png)
 
    picture3
 
