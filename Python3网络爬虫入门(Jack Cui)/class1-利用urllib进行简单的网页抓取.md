@@ -90,13 +90,7 @@ if __name__ == "__main__":
    html = response.read()
    print(html)
 
-   1
-   2
-   3
-   4
-   5
-   6
-   7
+
 
    urllib使用使用request.urlopen()打开和读取URLs信息，返回的对象response如同一个文本对象，我们可以调用read()，进行读取。再通过print()，将读到的信息打印出来。
 
@@ -109,22 +103,22 @@ if __name__ == "__main__":
 
 python urllib_test01.py
 
-   1
+
 
    运行py文件，输出信息是一样的，如下：
    ![image](https://github.com/winter-bear/python-study/tree/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/1-2.png)
 
-   picture5
+
 
    其实这就是浏览器接收到的信息，只不过我们在使用浏览器的时候，浏览器已经将这些信息转化成了界面信息供我们浏览。当然这些代码我们也可以从浏览器中查看到。例如，使用谷歌浏览器，在任意界面单击右键选择检查，也就是审查元素(不是所有页面都可以审查元素的，例如起点中文网付费章节就不行.)，以百度界面为例，截图如下：
    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/1-3.png)
 
-   picture6
+
 
    可以看到，右边就是我们的审查结果。我们可以在本地，也就是浏览器(客户端)更改元素，但是这个不会上传到服务器端。例如我可以修改自己的支付宝余额装一装，比如这样：
    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/1-4.png)
 
-   picture7
+
 
    我实际有这些钱吗？显然苦逼的我，是不会有这些钱的，我只不过是修改了下审查元素的信息而已。
 
@@ -143,24 +137,16 @@ if __name__ == "__main__":
    html = html.decode("utf-8")
    print(html)
 
-   1
-   2
-   3
-   4
-   5
-   6
-   7
-   8
+
 
    这样我们就可以得到这样的结果，显然解码后的信息看起来工整和舒服多了：
    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/1-5.png)
 
-   picture8
+
 
    当然这个前提是我们已经知道了这个网页是使用utf-8编码的，怎么查看网页的编码方式呢？需要人为操作，且非常简单的方法是使用使用浏览器审查元素，只需要找到head标签开始位置的chareset，就知道网页是采用何种编码的了。如下：
    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/1-6.png)
 
-   picture9
 
    这样我们就知道了这个网站的编码方式，但是这需要我们每次都打开浏览器，并找下编码方式，显然有些费事，使用几行代码解决更加省事并且显得酷一些。
 
@@ -172,10 +158,10 @@ if __name__ == "__main__":
 
 pip install chardet
 
-   1
+
    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/1-7.png)
 
-   picture10
+
 
    安装好后，我们就可以使用chardet.detect()方法，判断网页的编码方式了。至此，我们就可以编写一个小程序判断网页的编码方式了，新建文件名为chardet_test01.py：
 
@@ -189,20 +175,11 @@ if __name__ == "__main__":
    charset = chardet.detect(html)
    print(charset)
 
-   1
-   2
-   3
-   4
-   5
-   6
-   7
-   8
-   9
+
 
    运行程序，查看输出结果如下：
    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/1-8.png)
 
-   picture11
 
    瞧，返回的是一个字典，这样我们就知道网页的编码方式了，通过获得的信息，采用不同的解码方式即可。
 
