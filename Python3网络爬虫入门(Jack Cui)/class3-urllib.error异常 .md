@@ -1,9 +1,6 @@
  Python3网络爬虫(三)：urllib.error异常
 
 
-运行平台：Windows
-Python版本：Python3.x
-IDE：Sublime text3
 
 转载请注明作者和出处：http://blog.csdn.net/c406495762/article/details/59488464
 
