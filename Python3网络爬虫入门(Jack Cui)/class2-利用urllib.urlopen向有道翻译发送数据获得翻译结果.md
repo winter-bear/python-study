@@ -1,14 +1,5 @@
 Python3网络爬虫(二)：利用urllib.urlopen向有道翻译发送数据获得翻译结果
-标签： python网络爬虫urlopen
-2017-03-01 12:59 9079人阅读 评论(55) 收藏 举报
-分类：
-Python（26）
 
-版权声明：本文为博主原创文章，未经博主允许不得转载。
-
-运行平台：Windows
-Python版本：Python3.x
-IDE：Sublime text3
 
 转载请注明作者和出处：http://blog.csdn.net/c406495762/article/details/59095864
 

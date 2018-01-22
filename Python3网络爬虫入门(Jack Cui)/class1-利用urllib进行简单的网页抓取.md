@@ -1,14 +1,5 @@
 Python3网络爬虫(一)：利用urllib进行简单的网页抓取
-标签： Python爬虫python3sublime
-2017-02-28 23:32 25578人阅读 评论(9) 收藏 举报
-分类：
-Python（26）
 
-版权声明：本文为博主原创文章，未经博主允许不得转载。
-
-运行平台：Windows
-Python版本：Python3.x
-IDE：Sublime text3
 
 转载请注明作者和出处：http://blog.csdn.net/c406495762/article/details/58716886
 
