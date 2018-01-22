@@ -24,9 +24,12 @@ def baidu_translate(content):
         httpClient = http.client.HTTPConnection('api.fanyi.baidu.com')  
         httpClient.request('GET', myurl)  
         # response是HTTPResponse对象  
-        response = httpClient.getresponse()  
-        jsonResponse = response.read().decode("utf-8")# 获得返回的结果，结果为json格式  
-        js = json.loads(jsonResponse)  # 将json格式的结果转换字典结构  
+        response = httpClient.getresponse()
+        print(response)  
+        jsonResponse = response.read().decode("utf-8")# 获得返回的结果，结果为json格式
+        print(jsonResponse)  
+        js = json.loads(jsonResponse)  # 将json格式的结果转换字典结构
+        print(js)  
         dst = str(js["trans_result"][0]["dst"])  # 取得翻译后的文本结果  
         print(dst) # 打印结果  
     except Exception as e:  
