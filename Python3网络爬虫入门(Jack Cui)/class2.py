@@ -1,29 +1,45 @@
 # -*- coding: UTF-8 -*-
-from urllib import request
-from urllib import parse
-import json
+import http.client  
+import hashlib  
+import json  
+import urllib  
+import random  
+  
+def baidu_translate(content):  
+    appid = '20151113000005349'  
+    secretKey = 'osubCEzlGjzvw8qdQc41'  
+    httpClient = None  
+    myurl = '/api/trans/vip/translate'  
+    q = content  
+    fromLang = 'en' # 源语言  
+    toLang = 'zh'   # 翻译后的语言  
+    salt = random.randint(32768, 65536)  
+    sign = appid + q + str(salt) + secretKey  
+    sign = hashlib.md5(sign.encode()).hexdigest()  
+    myurl = myurl + '?appid=' + appid + '&q=' + urllib.parse.quote(  
+        q) + '&from=' + fromLang + '&to=' + toLang + '&salt=' + str(  
+        salt) + '&sign=' + sign  
+  
+    try:  
+        httpClient = http.client.HTTPConnection('api.fanyi.baidu.com')  
+        httpClient.request('GET', myurl)  
+        # response是HTTPResponse对象  
+        response = httpClient.getresponse()  
+        jsonResponse = response.read().decode("utf-8")# 获得返回的结果，结果为json格式  
+        js = json.loads(jsonResponse)  # 将json格式的结果转换字典结构  
+        dst = str(js["trans_result"][0]["dst"])  # 取得翻译后的文本结果  
+        print(dst) # 打印结果  
+    except Exception as e:  
+        print(e)  
+    finally:  
+        if httpClient:  
+            httpClient.close()  
+  
+if __name__ == '__main__':  
+    while True:  
+        print("请输入要翻译的内容,如果退出输入q")  
+        content = input()  
+        if (content == 'q'):  
+            break  
+        baidu_translate(content)  
 
-if __name__ == "__main__":
-    #对应上图的Request URL
-    Request_URL = 'http://fanyi.youdao.com/translate?smartresult=dict&smartresult=rule&smartresult=ugc&sessionFrom=https://www.baidu.com/link'
-    #创建Form_Data字典，存储上图的Form Data
-    Form_Data = {}
-    Form_Data['type'] = 'AUTO'
-    Form_Data['i'] = 'Jack'
-    Form_Data['doctype'] = 'json'
-    Form_Data['xmlVersion'] = '1.8'
-    Form_Data['keyfrom'] = 'fanyi.web'
-    Form_Data['ue'] = 'ue:UTF-8'
-    Form_Data['action'] = 'FY_BY_CLICKBUTTON'
-    #使用urlencode方法转换标准格式
-    data = parse.urlencode(Form_Data).encode('utf-8')
-    #传递Request对象和转换完格式的数据
-    response = request.urlopen(Request_URL,data)
-    #读取信息并解码
-    html = response.read().decode('utf-8')
-    #使用JSON
-    translate_results = json.loads(html)
-    #找到翻译结果
-    translate_results = translate_results['translateResult'][0][0]['tgt']
-    #打印翻译信息
-    print("翻译的结果是：%s" % translate_results)
