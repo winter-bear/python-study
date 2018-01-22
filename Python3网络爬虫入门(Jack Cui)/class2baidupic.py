@@ -28,6 +28,8 @@ def create_folder(url2):
     try:
         # 获取标题
         tile = re.compile('<title>(.*?)_百度贴吧</title>').findall(urllib.request.urlopen(url).read().decode('UTF-8'))
+        print(tile)
+        print(type(tile))
         os.mkdir(str(tile[0]))
         print("成功创建\""+str(tile[0])+"\"  文件夹")
         os.chdir(os.path.join(os.getcwd(), str(tile[0])))
