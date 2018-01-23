@@ -53,23 +53,23 @@ Python3网络爬虫(四)：使用User Agent和代理IP隐藏身份
 
     创建文件urllib_test09.py，使用上面提到的Android的第一个User Agent，在创建Request对象的时候传入headers参数，编写代码如下：
 
-# -*- coding: UTF-8 -*-
-from urllib import request
+    # -*- coding: UTF-8 -*-
+    from urllib import request
 
-if __name__ == "__main__":
-    #以CSDN为例，CSDN不更改User Agent是无法访问的
-    url = 'http://www.csdn.net/'
-    head = {}
-    #写入User Agent信息
-    head['User-Agent'] = 'Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19'
- #创建Request对象
-    req = request.Request(url, headers=head)
-    #传入创建好的Request对象
-    response = request.urlopen(req)
-    #读取响应信息并解码
-    html = response.read().decode('utf-8')
-    #打印信息
-    print(html)
+    if __name__ == "__main__":
+        #以CSDN为例，CSDN不更改User Agent是无法访问的
+        url = 'http://www.csdn.net/'
+        head = {}
+        #写入User Agent信息
+        head['User-Agent'] = 'Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19'
+     #创建Request对象
+        req = request.Request(url, headers=head)
+        #传入创建好的Request对象
+        response = request.urlopen(req)
+        #读取响应信息并解码
+        html = response.read().decode('utf-8')
+        #打印信息
+        print(html)
 
 
     运行结果如下：
@@ -80,22 +80,22 @@ if __name__ == "__main__":
 
     创建文件urllib_test10.py，使用上面提到的Android的第一个User Agent，在创建Request对象时不传入headers参数，创建之后使用add_header()方法，添加headers，编写代码如下：
 
-# -*- coding: UTF-8 -*-
-from urllib import request
+    # -*- coding: UTF-8 -*-
+    from urllib import request
 
-if __name__ == "__main__":
-    #以CSDN为例，CSDN不更改User Agent是无法访问的
-    url = 'http://www.csdn.net/'
-    #创建Request对象
-    req = request.Request(url)
-    #传入headers
-    req.add_header('User-Agent', 'Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19')
-    #传入创建好的Request对象
-    response = request.urlopen(req)
-    #读取响应信息并解码
-    html = response.read().decode('utf-8')
-    #打印信息
-    print(html)
+    if __name__ == "__main__":
+        #以CSDN为例，CSDN不更改User Agent是无法访问的
+        url = 'http://www.csdn.net/'
+        #创建Request对象
+        req = request.Request(url)
+        #传入headers
+        req.add_header('User-Agent', 'Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166  Safari/535.19')
+        #传入创建好的Request对象
+        response = request.urlopen(req)
+        #读取响应信息并解码
+        html = response.read().decode('utf-8')
+        #打印信息
+        print(html)
 
     运行结果和上一个方法是一样的。
 
@@ -141,28 +141,28 @@ if __name__ == "__main__":
 
     创建文件urllib_test11.py，编写代码如下：
 
-# -*- coding: UTF-8 -*-
-from urllib import request
+    # -*- coding: UTF-8 -*-
+    from urllib import request
 
-if __name__ == "__main__":
-    #访问网址
-    url = 'http://www.whatismyip.com.tw/'
-    #这是代理IP
-    proxy = {'http':'106.46.136.112:808'}
-    #创建ProxyHandler
-    proxy_support = request.ProxyHandler(proxy)
-    #创建Opener
-    opener = request.build_opener(proxy_support)
-    #添加User Angent
-    opener.addheaders = [('User-Agent','Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36')]
-    #安装OPener
-    request.install_opener(opener)
-    #使用自己安装好的Opener
-    response = request.urlopen(url)
-    #读取相应信息并解码
-    html = response.read().decode("utf-8")
-    #打印信息
-    print(html)
+    if __name__ == "__main__":
+        #访问网址
+        url = 'http://www.whatismyip.com.tw/'
+        #这是代理IP
+        proxy = {'http':'106.46.136.112:808'}
+        #创建ProxyHandler
+        proxy_support = request.ProxyHandler(proxy)
+        #创建Opener
+        opener = request.build_opener(proxy_support)
+        #添加User Angent
+        opener.addheaders = [('User-Agent','Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36')]
+        #安装OPener
+        request.install_opener(opener)
+        #使用自己安装好的Opener
+        response = request.urlopen(url)
+        #读取相应信息并解码
+        html = response.read().decode("utf-8")
+        #打印信息
+        print(html)
 
 
 
