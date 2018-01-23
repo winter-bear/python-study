@@ -40,7 +40,7 @@ Python3网络爬虫(四)：使用User Agent和代理IP隐藏身份
 
     先看下urllib.request.Request()
 
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-1.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-1.png)
 
     从上图可以看出，在创建Request对象的时候，可以传入headers参数。
     因此，想要设置User Agent，有两种方法：
@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     运行结果如下：
 
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-2.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-2.png)
 
 方法二：
 
@@ -111,15 +111,15 @@ if __name__ == "__main__":
 
     (1)调用urlib.request.ProxyHandler()，proxies参数为一个字典。
 
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-3.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-3.png)
 
     (2)创建Opener(类似于urlopen，这个代开方式是我们自己定制的)
 
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-4.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-4.png)
 
     (3)安装Opener
 
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-5.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-5.png)
 
     使用install_opener方法之后，会将程序默认的urlopen方法替换掉。也就是说，如果使用install_opener之后，在该文件中，再次调用urlopen会使用自己创建好的opener。如果不想替换掉，只是想临时使用一下，可以使用opener.open(url)，这样就不会对程序默认的urlopen有影响。
 
@@ -133,7 +133,7 @@ if __name__ == "__main__":
 
     从西刺网站选出信号好的IP，我的选择如下：(106.46.136.112:808)
 
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-6.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-6.png)
 
     编写代码访问http://www.whatismyip.com.tw/，该网站是测试自己IP为多少的网址，服务器会返回访问者的IP。
 
@@ -168,6 +168,6 @@ if __name__ == "__main__":
 
     运行结果如下：
 
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-7.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/4-7.png)
 
     从上图可以看出，访问的IP已经伪装成了106.46.136.112。
