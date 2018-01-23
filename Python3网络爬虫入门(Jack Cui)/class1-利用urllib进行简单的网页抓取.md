@@ -73,13 +73,13 @@ Python3网络爬虫(一)：利用urllib进行简单的网页抓取
 
    了解到这些，我们就可以写一个最简单的程序，文件名为urllib_test01.py，感受一个urllib库的魅力：
 
-   # -*- coding: UTF-8 -*-
-   from urllib import request
+      # -*- coding: UTF-8 -*-
+      from urllib import request
 
-   if __name__ == "__main__":
-      response = request.urlopen("http://fanyi.baidu.com")
-      html = response.read()
-      print(html)
+      if __name__ == "__main__":
+         response = request.urlopen("http://fanyi.baidu.com")
+         html = response.read()
+         print(html)
 
 
 
@@ -118,14 +118,14 @@ python urllib_test01.py
 
    我们可以通过简单的decode()命令将网页的信息进行解码，并显示出来，我们新创建一个文件，命名为urllib_test02.py，编写如下代码(还是以百度翻译网站fanyi.baidu.com为例)：
 
-   # -*- coding: UTF-8 -*-
-   from urllib import request
+      # -*- coding: UTF-8 -*-
+      from urllib import request
 
-   if __name__ == "__main__":
-      response = request.urlopen("http://www.fanyi.baidu.com/")
-      html = response.read()
-      html = html.decode("utf-8")
-      print(html)
+      if __name__ == "__main__":
+         response = request.urlopen("http://www.fanyi.baidu.com/")
+         html = response.read()
+         html = html.decode("utf-8")
+         print(html)
 
 
 
@@ -155,15 +155,15 @@ pip install chardet
 
    安装好后，我们就可以使用chardet.detect()方法，判断网页的编码方式了。至此，我们就可以编写一个小程序判断网页的编码方式了，新建文件名为chardet_test01.py：
 
-   # -*- coding: UTF-8 -*-
-   from urllib import request
-   import chardet
+      # -*- coding: UTF-8 -*-
+      from urllib import request
+      import chardet
 
-   if __name__ == "__main__":
-      response = request.urlopen("http://fanyi.baidu.com/")
-      html = response.read()
-      charset = chardet.detect(html)
-      print(charset)
+      if __name__ == "__main__":
+         response = request.urlopen("http://fanyi.baidu.com/")
+         html = response.read()
+         charset = chardet.detect(html)
+         print(charset)
 
 
 
