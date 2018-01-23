@@ -12,15 +12,15 @@ Python3网络爬虫(二)：利用urllib.urlopen向有道翻译发送数据获得
 
   url不仅可以是一个字符串，例如:http://www.baidu.com。url也可以是一个Request对象，这就需要我们先定义一个Request对象，然后将这个Request对象作为urlopen的参数使用，方法如下：
 
-# -*- coding: UTF-8 -*-
-from urllib import request
+   # -*- coding: UTF-8 -*-
+   from urllib import request
 
-if __name__ == "__main__":
-   req = request.Request("http://fanyi.baidu.com/")
-   response = request.urlopen(req)
-   html = response.read()
-   html = html.decode("utf-8")
-   print(html)
+   if __name__ == "__main__":
+      req = request.Request("http://fanyi.baidu.com/")
+      response = request.urlopen(req)
+      html = response.read()
+      html = html.decode("utf-8")
+      print(html)
 
 
    同样，运行这段代码同样可以得到网页信息。可以看一下这段代码和上个笔记中代码的不同，对比一下就明白了。
@@ -44,17 +44,17 @@ if __name__ == "__main__":
 
    了解到这些，我们就可以进行新一轮的测试，新建文件名urllib_test04.py，编写如下代码：
 
-# -*- coding: UTF-8 -*-
-from urllib import request
+   # -*- coding: UTF-8 -*-
+   from urllib import request
 
-if __name__ == "__main__":
-   req = request.Request("http://fanyi.baidu.com/")
-   response = request.urlopen(req)
-   print("geturl打印信息：%s"%(response.geturl()))
-   print('**********************************************')
-   print("info打印信息：%s"%(response.info()))
-   print('**********************************************')
-   print("getcode打印信息：%s"%(response.getcode()))
+   if __name__ == "__main__":
+      req = request.Request("http://fanyi.baidu.com/")
+      response = request.urlopen(req)
+      print("geturl打印信息：%s"%(response.geturl()))
+      print('**********************************************')
+      print("info打印信息：%s"%(response.info()))
+      print('**********************************************')
+      print("getcode打印信息：%s"%(response.getcode()))
 
 
    可以得到如下运行结果：
@@ -115,35 +115,35 @@ if __name__ == "__main__":
 
    新建文件translate_test.py，编写如下代码：
 
-# -*- coding: UTF-8 -*-
-from urllib import request
-from urllib import parse
-import json
+   # -*- coding: UTF-8 -*-
+   from urllib import request
+   from urllib import parse
+   import json
 
-if __name__ == "__main__":
-   #对应上图的Request URL
-   Request_URL = 'http://fanyi.youdao.com/translate?smartresult=dict&smartresult=rule&smartresult=ugc&sessionFrom=https://www.baidu.com/link'
-   #创建Form_Data字典，存储上图的Form Data
-   Form_Data = {}
-   Form_Data['type'] = 'AUTO'
-   Form_Data['i'] = 'Jack'
-   Form_Data['doctype'] = 'json'
-   Form_Data['xmlVersion'] = '1.8'
-   Form_Data['keyfrom'] = 'fanyi.web'
-   Form_Data['ue'] = 'ue:UTF-8'
-   Form_Data['action'] = 'FY_BY_CLICKBUTTON'
-   #使用urlencode方法转换标准格式
-   data = parse.urlencode(Form_Data).encode('utf-8')
-   #传递Request对象和转换完格式的数据
-   response = request.urlopen(Request_URL,data)
-   #读取信息并解码
-   html = response.read().decode('utf-8')
-   #使用JSON
-   translate_results = json.loads(html)
-   #找到翻译结果
-   translate_results = translate_results['translateResult'][0][0]['tgt']
-   #打印翻译信息
-   print("翻译的结果是：%s" % translate_results)
+   if __name__ == "__main__":
+      #对应上图的Request URL
+      Request_URL = 'http://fanyi.youdao.com/translate?smartresult=dict&smartresult=rule&smartresult=ugc&sessionFrom=https://www.baidu.com/link'
+      #创建Form_Data字典，存储上图的Form Data
+      Form_Data = {}
+      Form_Data['type'] = 'AUTO'
+      Form_Data['i'] = 'Jack'
+      Form_Data['doctype'] = 'json'
+      Form_Data['xmlVersion'] = '1.8'
+      Form_Data['keyfrom'] = 'fanyi.web'
+      Form_Data['ue'] = 'ue:UTF-8'
+      Form_Data['action'] = 'FY_BY_CLICKBUTTON'
+      #使用urlencode方法转换标准格式
+      data = parse.urlencode(Form_Data).encode('utf-8')
+      #传递Request对象和转换完格式的数据
+      response = request.urlopen(Request_URL,data)
+      #读取信息并解码
+      html = response.read().decode('utf-8')
+      #使用JSON
+      translate_results = json.loads(html)
+      #找到翻译结果
+      translate_results = translate_results['translateResult'][0][0]['tgt']
+      #打印翻译信息
+      print("翻译的结果是：%s" % translate_results)
 
 
    这样我们就可以查看翻译的结果了，如下图所示：
