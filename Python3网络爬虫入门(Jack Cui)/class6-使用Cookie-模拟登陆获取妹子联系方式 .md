@@ -23,25 +23,25 @@
 
 1.背景介绍
 
-    在伯乐在线有这么一个有趣的模块，面向对象，它说白了就是提供了一个程序员(媛)网上相亲的平台。
+  在伯乐在线有这么一个有趣的模块，面向对象，它说白了就是提供了一个程序员(媛)网上相亲的平台。
 
-    URL:http://date.jobbole.com/
+  URL:http://date.jobbole.com/
 
-    它的样子是这样的：
+  它的样子是这样的：
 ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-2.png)
-    可以看到，这里有很多的相亲贴，随便点进去就会有网上相亲MM的详细信息，想获取MM的联系方式，需要积分，积分可以通过签到的方式获取。如果没有登陆账户，获取联系方式的地方是这个样子的：
+  可以看到，这里有很多的相亲贴，随便点进去就会有网上相亲MM的详细信息，想获取MM的联系方式，需要积分，积分可以通过签到的方式获取。如果没有登陆账户，获取联系方式的地方是这个样子的：
 ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-3.png)
-    如果登陆了账号，获取联系方式的地方是这个样子的：
+  如果登陆了账号，获取联系方式的地方是这个样子的：
 ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-4.png)
-    想要爬取MM的联系邮箱，就需要用到我们本次讲到的知识，Cookie的使用。当然，首先你积分也得够。
+  想要爬取MM的联系邮箱，就需要用到我们本次讲到的知识，Cookie的使用。当然，首先你积分也得够。
 
-    在讲解之前，推荐一款抓包工具–Fiddler，可以在Google Chrome的Google商店下载这个插件，它的样子是这样的：
+  在讲解之前，推荐一款抓包工具–Fiddler，可以在Google Chrome的Google商店下载这个插件，它的样子是这样的：
 ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-5.png)
-    可以看到，通过这个插件，我们可以很容易找到Post的Form Data等信息，很方便，当然也可以用之前讲得浏览器审查元素的方式查看这些信息。
+  可以看到，通过这个插件，我们可以很容易找到Post的Form Data等信息，很方便，当然也可以用之前讲得浏览器审查元素的方式查看这些信息。
 
 2.过程分析
 
-    在伯乐在线首页点击登陆的按钮，Fiddler的抓包内容如下：
+  在伯乐在线首页点击登陆的按钮，Fiddler的抓包内容如下：
 ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-6.png)
     从上图可以看出，真正请求的url是
 
