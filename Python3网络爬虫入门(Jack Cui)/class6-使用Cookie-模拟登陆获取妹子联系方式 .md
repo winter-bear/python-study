@@ -30,6 +30,7 @@
     它的样子是这样的：
 ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-2.png)
     可以看到，这里有很多的相亲贴，随便点进去就会有网上相亲MM的详细信息，想获取MM的联系方式，需要积分，积分可以通过签到的方式获取。如果没有登陆账户，获取联系方式的地方是这个样子的：
+
 ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-3.png)
     
     如果登陆了账号，获取联系方式的地方是这个样子的：
@@ -141,7 +142,6 @@
     了解到以上内容，我们那就可以开始正式编写模拟登陆伯乐在线的程序了。同时，我们也可以获取相亲MM的联系方式。
 
   4.编写代码
-
     我们利用CookieJar对象实现获取cookie的功能，存储到变量中。然后使用这个cookie变量创建opener，使用这个设置好cookie的opener即可模拟登陆，同笔记四中讲到的IP代理的使用方法类似。
     创建cookie_test.py文件，编写代码如下：
 
