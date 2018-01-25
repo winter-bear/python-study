@@ -52,9 +52,7 @@
     在点击取得联系邮箱按钮的时候，Fiddler的抓包内容如下：
 ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-7.png)
     从上图可以看出，此刻真正请求的url是
-
     http://date.jobbole.com/wp-admin/admin-ajax.php
-
     同样Form Data中内容要记下来。postId是每个帖子的id。例如，打开一个相亲贴，它的URL是http://date.jobbole.com/4128/，那么它的这个postId就是4128。为了简化程序，这里就不讲解如何自动获取这个postId了，本实例直接指定postId。如果想要自动获取，可以使用beautifulsoup解析http://date.jobbole.com/返回的信息。beautifulsoup的使用。有机会的话，会在后面的爬虫笔记中进行讲解。
 
   3.测试
@@ -85,7 +83,6 @@
     我们使用以上方法将cookie保存到变量中，然后打印出了cookie中的值，运行结果如下:
 ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-8.png)
     2)保存Cookie到文件
-
     在上面的方法中，我们将cookie保存到了cookie这个变量中，如果我们想将cookie保存到文件中该怎么做呢？方便以后直接读取文件使用，这时，我们就要用到FileCookieJar这个对象了，在这里我们使用它的子类MozillaCookieJar来实现Cookie的保存，编写代码如下：
 
         # -*- coding: UTF-8 -*-
@@ -107,19 +104,13 @@
             #保存cookie到文件
             cookie.save(ignore_discard=True, ignore_expires=True)
 
-
     cookie.save的参数说明：
-
     ignore_discard的意思是即使cookies将被丢弃也将它保存下来；
-
     ignore_expires的意思是如果在该文件中cookies已经存在，则覆盖原文件写入。
-
     在这里，我们将这两个全部设置为True。
-
     运行之后，cookies将被保存到cookie.txt文件中。我们可以查看自己查看下cookie.txt这个文件的内容。
 
     3)从文件中获取Cookie并访问
-
     我们已经做到把Cookie保存到文件中了，如果以后想使用，可以利用下面的方法来读取cookie并访问网站，感受一下：
 
         # -*- coding: UTF-8 -*-
@@ -142,14 +133,12 @@
             #打印信息
             print(response.read().decode('utf-8'))
 
-
     了解到以上内容，我们那就可以开始正式编写模拟登陆伯乐在线的程序了。同时，我们也可以获取相亲MM的联系方式。
 
   4.编写代码
-
     我们利用CookieJar对象实现获取cookie的功能，存储到变量中。然后使用这个cookie变量创建opener，使用这个设置好cookie的opener即可模拟登陆，同笔记四中讲到的IP代理的使用方法类似。
-
     创建cookie_test.py文件，编写代码如下：
+
 
         # -*- coding: UTF-8 -*-
         from urllib import request
