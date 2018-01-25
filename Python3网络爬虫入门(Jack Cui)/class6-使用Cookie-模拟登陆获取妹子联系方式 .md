@@ -83,6 +83,7 @@
         for item in cookie:
             print('Name = %s' % item.name)
             print('Value = %s' % item.value)
+            
 
 
   我们使用以上方法将cookie保存到变量中，然后打印出了cookie中的值，运行结果如下:
@@ -110,6 +111,7 @@
         response = opener.open('http://www.baidu.com')
         #保存cookie到文件
         cookie.save(ignore_discard=True, ignore_expires=True)
+
 
   cookie.save的参数说明：
   ignore_discard的意思是即使cookies将被丢弃也将它保存下来；
@@ -139,6 +141,7 @@
         response = opener.open('http://www.baidu.com')
         #打印信息
         print(response.read().decode('utf-8'))
+
 
   了解到以上内容，我们那就可以开始正式编写模拟登陆伯乐在线的程序了。同时，我们也可以获取相亲MM的联系方式。
 
