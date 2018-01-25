@@ -9,7 +9,7 @@
     Cookie，指某些网站为了辨别用户身份、进行session跟踪而储存在用户本地终端上的数据（通常经过加密)。
     比如说有些网站需要登录后才能访问某个页面，在登录之前，你想抓取某个页面内容，登陆前与登陆后是不同的，或者不允许的。
     使用Cookie和使用代理IP一样，也需要创建一个自己的opener。在HTTP包中，提供了cookiejar模块，用于提供对Cookie的支持。
-        ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-1.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-1.png)
 
     http.cookiejar功能强大，我们可以利用本模块的CookieJar类的对象来捕获cookie并在后续连接请求时重新发送，比如可以实现模拟登录功能。该模块主要的对象有CookieJar、FileCookieJar、MozillaCookieJar、LWPCookieJar。
 
@@ -28,21 +28,21 @@
         URL:http://date.jobbole.com/
 
         它的样子是这样的：
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-2.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-2.png)
         可以看到，这里有很多的相亲贴，随便点进去就会有网上相亲MM的详细信息，想获取MM的联系方式，需要积分，积分可以通过签到的方式获取。如果没有登陆账户，获取联系方式的地方是这个样子的：
         ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-3.png)
         如果登陆了账号，获取联系方式的地方是这个样子的：
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-4.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-4.png)
         想要爬取MM的联系邮箱，就需要用到我们本次讲到的知识，Cookie的使用。当然，首先你积分也得够。
 
         在讲解之前，推荐一款抓包工具–Fiddler，可以在Google Chrome的Google商店下载这个插件，它的样子是这样的：
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-5.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-5.png)
         可以看到，通过这个插件，我们可以很容易找到Post的Form Data等信息，很方便，当然也可以用之前讲得浏览器审查元素的方式查看这些信息。
 
     2.过程分析
 
         在伯乐在线首页点击登陆的按钮，Fiddler的抓包内容如下：
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-6.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-6.png)
         从上图可以看出，真正请求的url是
 
         http://www.jobbole.com/wp-admin/admin-ajax.php
@@ -50,7 +50,7 @@
         Form Data的内容记住，这些是我们编程需要用到的。user_login是用户名，user_pass是用户密码。
 
         在点击取得联系邮箱按钮的时候，Fiddler的抓包内容如下：
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-7.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-7.png)
         从上图可以看出，此刻真正请求的url是
 
         http://date.jobbole.com/wp-admin/admin-ajax.php
@@ -83,7 +83,7 @@
 
 
         我们使用以上方法将cookie保存到变量中，然后打印出了cookie中的值，运行结果如下:
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-8.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-8.png)
         2)保存Cookie到文件
 
         在上面的方法中，我们将cookie保存到了cookie这个变量中，如果我们想将cookie保存到文件中该怎么做呢？方便以后直接读取文件使用，这时，我们就要用到FileCookieJar这个对象了，在这里我们使用它的子类MozillaCookieJar来实现Cookie的保存，编写代码如下：
@@ -209,7 +209,7 @@
 
 
     5.运行结果如下：
-    ![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-9.png)
+![image](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/screenshot/6-9.png)
 三、总结
 
     获取成功！如果看过之前的笔记内容，我想这些代码应该很好理解吧。
