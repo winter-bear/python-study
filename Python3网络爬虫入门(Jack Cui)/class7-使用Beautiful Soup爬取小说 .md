@@ -469,4 +469,4 @@ from bs4 import BeautifulSoup
    对代码进行了更改：添加了对错误章节的处理，并剔除了不是正文的部分。支持《笔趣看》网站大部分的小说下载。
 
 代码查看：
-    [Github代码连接](https://github.com/Jack-Cherish/python-spider/blob/master/biqukan.py)
+    [Github代码连接](https://github.com/winter-bear/python-study/blob/master/Python3%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E5%85%A5%E9%97%A8(Jack%20Cui)/littlepracctise/biqukan.py)
